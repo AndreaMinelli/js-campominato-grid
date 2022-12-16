@@ -53,6 +53,12 @@ img{
     margin-right: 1rem;
 }
 
+.header-right #level{
+    width: 150px;
+    padding: 0rem 2rem 0 0;
+    margin: 0 0.2rem;
+}
+
 .header-right button{
     font-weight: 600;
     padding: 0.2rem 2rem;
