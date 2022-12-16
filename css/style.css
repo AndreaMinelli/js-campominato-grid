@@ -19,7 +19,7 @@ body{
 
 header{
     height: 80px;
-    padding: 0 2rem;
+    padding: 0 1rem;
     display: flex;
     justify-content: space-between;
 }
@@ -30,9 +30,16 @@ main{
     padding: 3rem;
 }
 
+footer{
+    height: 50px;
+    line-height: 50px;
+    padding: 0 1rem;
+}
+
 img{
     max-width: 100%;
 }
+
 
 /* Header */
 
