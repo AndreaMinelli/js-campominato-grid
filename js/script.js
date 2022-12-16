@@ -14,7 +14,8 @@ Al click sulla cella, stampiamo il numero della cella cliccata in console, poi c
 */
 
 //Creo funzione per generare le celle
-const createCell = (content) => (cell = `<div class="cell">${content}</div>`);
+const createCell = (howMany, content) =>
+  (cell = `<div class="cell cell-${howMany}">${content}</div>`);
 
 //Creo funzione per il click
 const getCliccable = (element) => {
@@ -27,20 +28,32 @@ const getCliccable = (element) => {
 //Targhettizzo gli elementi in pagina
 const table = document.getElementById("table");
 const button = document.getElementById("button");
-let cellsElement;
-
-const row = 10;
-const col = 10;
-const cellsNumber = row * col;
+const levelElement = document.getElementById("level");
 
 //Creo funzione al click del bottone
 button.addEventListener("click", function () {
+  const level = levelElement.value;
+
+  let cellsNumber;
+  switch (level) {
+    case "10":
+      cellsNumber = 10 * 10;
+      break;
+    case "9":
+      cellsNumber = 9 * 9;
+      break;
+    case "7":
+      cellsNumber = 7 * 7;
+      break;
+  }
+
   let cells = "";
   for (let i = 1; i <= cellsNumber; i++) {
-    cells += createCell(i);
+    cells += createCell(level, i);
   }
   table.innerHTML = cells;
-  cellsElement = document.querySelectorAll("#table .cell");
+
+  const cellsElement = document.querySelectorAll("#table .cell");
   //Modifico colonne al click
   for (let i = 0; i < cellsElement.length; i++) {
     const selectedCell = cellsElement[i];
