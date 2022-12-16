@@ -20,6 +20,7 @@ const createCell = (content) => (cell = `<div class="cell">${content}</div>`);
 
 const table = document.getElementById("table");
 const button = document.getElementById("button");
+let cellsElement;
 
 const row = 10;
 const col = 10;
@@ -31,6 +32,15 @@ button.addEventListener("click", function () {
   for (let i = 1; i <= cellsNumber; i++) {
     cells += createCell(i);
   }
-
   table.innerHTML = cells;
+  cellsElement = document.querySelectorAll("#table .cell");
+
+  //Creo funzione al click sulle colonne
+  for (let i = 0; i < cellsElement.length; i++) {
+    const selectedCell = cellsElement[i];
+    selectedCell.addEventListener("click", function () {
+      selectedCell.classList.toggle("clicked");
+      console.log(selectedCell.textContent);
+    });
+  }
 });
