@@ -14,7 +14,7 @@ Al click sulla cella, stampiamo il numero della cella cliccata in console, poi c
 */
 
 //Creo funzione per generare le celle
-const createCell = () => (cell = `<div class="cell"></div>`);
+const createCell = (content) => (cell = `<div class="cell">${content}</div>`);
 
 //Targhettizzo gli elementi in pagina
 
@@ -28,8 +28,8 @@ const cellsNumber = row * col;
 
 button.addEventListener("click", function () {
   let cells = "";
-  for (let i = 0; i < cellsNumber; i++) {
-    cells += createCell();
+  for (let i = 1; i <= cellsNumber; i++) {
+    cells += createCell(i);
   }
 
   table.innerHTML = cells;
