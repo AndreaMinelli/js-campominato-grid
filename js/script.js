@@ -12,3 +12,25 @@ In ogni cella, deve comparire il numero corrispondente, in ordine da 1 a 100;
 #MILESTONE 4
 Al click sulla cella, stampiamo il numero della cella cliccata in console, poi coloriamo la cella d'azzurro!
 */
+
+//Creo funzione per generare le celle
+const createCell = () => (cell = `<div class="cell"></div>`);
+
+//Targhettizzo gli elementi in pagina
+
+const table = document.getElementById("table");
+const button = document.getElementById("button");
+
+const row = 10;
+const col = 10;
+const cellsNumber = row * col;
+//Creo funzione al click del bottone
+
+button.addEventListener("click", function () {
+  let cells = "";
+  for (let i = 0; i < cellsNumber; i++) {
+    cells += createCell();
+  }
+
+  table.innerHTML = cells;
+});
